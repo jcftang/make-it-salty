@@ -1,0 +1,36 @@
+{% from "logentries_agent/map.jinja" import logentries_agent_settings with context %}
+{%- set list = salt['pillar.get']('logentries_agent:list') -%}
+
+[Main]
+{%- if 'account_key' in logentries_agent_settings %}
+user-key = {{ logentries_agent_settings.account_key }}
+{%- endif %}
+{%- if 'host_key' in logentries_agent_settings %}
+agent-key = {{ logentries_agent_settings.host_key }}
+{%- endif %}
+pull-server-side-config = {{ logentries_agent_settings.pull_server_side_config }}
+metrics-mem = system
+metrics-token = 
+metrics-disk = sum
+metrics-swap = system
+metrics-space = /
+metrics-vcpu = 
+metrics-net = sum
+metrics-interval = 5s
+metrics-cpu = system
+
+{% if list %}
+# List of logs to follow
+{%- for log, options in list.items() %}
+[{{ log }}]
+{%- if 'path' in options %}
+path = {{ options.path }}
+{%- endif %}
+{%- if 'dest' in options %}
+destination = {{ options.dest }}
+{%- endif %}
+{%- if 'token' in options %}
+token = {{ options.token }}
+{%- endif %}
+{% endfor %}
+{% endif %}

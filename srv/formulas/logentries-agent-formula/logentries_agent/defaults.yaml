@@ -1,0 +1,5 @@
+logentries_agent:
+    # please use a real account and or host key
+    account_key: ACCOUNT_KEY_FROM_LOG_ENTRIES
+    host_key: HOST_KEY_FROM_LOG_ENTRIES
+    pull_server_side_config: False

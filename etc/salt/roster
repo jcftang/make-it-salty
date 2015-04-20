@@ -1,0 +1,9 @@
+node0:
+    host: 192.168.192.10
+    user: root
+    passwd: password
+
+node1:
+    host: 192.168.192.11
+    user: root
+    passwd: password

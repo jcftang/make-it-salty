@@ -1,0 +1,9 @@
+root_dir: .
+file_roots:
+    base:
+        - srv/formulas/logentries-agent-formula
+        - srv/salt
+pillar_roots:
+    base:
+        - srv/pillar
+minion_data_cache: True

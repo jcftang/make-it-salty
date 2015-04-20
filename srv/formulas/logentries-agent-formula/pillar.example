@@ -1,0 +1,11 @@
+logentries_agent:
+    account_key: ACCOUNT_KEY_FROM_LE
+    host_key: HOST_KEY_FROM_LE
+    pull_server_side_config: False
+    list:
+        mysyslogset:
+            path: /var/log/syslog
+            token: LOG_TOKEN
+        mymaillogset:
+            path: /var/log/mail.log
+            dest: node0/syslog
